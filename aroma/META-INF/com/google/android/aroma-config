@@ -1,0 +1,106 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+###
+
+ini_set("rom_name",             "Tharsis");
+ini_set("rom_version",          "1.1");
+ini_set("rom_author",           "vicious98");
+ini_set("rom_device",           "karate");
+ini_set("rom_date",             "July 15, 2019");
+
+ini_set("force_colorspace","rgba");
+#ini_set("dp","6");
+
+fontresload( "0", "ttf/Roboto-Regular.ttf", "12" );
+fontresload( "1", "ttf/Roboto-Regular.ttf", "18" ); 
+
+splash(2000, "tharsis");
+
+theme("tharsis");
+
+
+viewbox(
+    "\nWelcome",
+
+    "<@center>\nThis is kernel for device<b> " + ini_get("rom_device") + "               </b>\n\n</@>" +
+    "\n\n\n\n  VERSION\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n" +
+    "  AUTHOR \t: <b><#selectbg_g>"+ini_get("rom_author")+"</#></b>\n" +
+    "  RELEASED\t: <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n" +
+    "Press Next to Continue...",
+
+    "@welcome"
+);
+
+
+agreebox(
+   "\nTerms Of Use",
+   "<@center>\nPlease read the Tharsis terms of use\n\n</@>",
+   "",
+   "" + readfile_aroma("agreement.txt"),
+   "I agree with these terms of use",
+   "<@center>\nYou must accept the terms</@>"
+);
+
+
+
+alert(
+  "NOTICE:",
+  "<b>Do not flash this over other custom kernels.</b>\n\nAfter flashing,this kernel will allow you to choose hardware settings that may not work with your device.\n\n",
+  "@warning",
+  "OK"
+);
+
+menubox(
+  "\nTharsis Installer",
+  "<@center>\nReady to install\n\n</@>",
+  "",
+  "menu.prop",
+  "Install Tharsis","Make sure you have backed up your boot image just in case as the next step cannot be reverted.","@install",
+  "Abort installation","","@trash"
+);
+
+if prop("menu.prop","selected")=="2"
+then
+  exit("");
+endif;
+
+setvar("retstatus",
+install(
+  "\nInstalling",
+  "<@center>\nInjecting the Tharsis...\nPlease wait...</@>",
+  "")
+);
+
+ini_set("text_next", "Finish");
+
+if getvar("retstatus")=="0" then
+   viewbox(
+  "Installation Completed",
+  "\n<#080>Congratulations...</#>\n\n"+
+  "<@center>Now go and enjoy the best\n"+
+  "Performance that your phone can ever give!!!</@>\n\n\n"+  
+  "Tharsis kernel has been installed successfully!\n\n"+
+  "Please let your phone boot completely...\n\n"+
+  "...and then REBOOT AGAIN!!!\n\n"+
+  "Let the Kernel stabalize for a while before reporting any bugs.\n\n"+
+  "Don't forget to share your experience on xda.\n\n\n"+
+  "Enjoy!",
+  ""
+);
+else
+   viewbox("Installation Failed","\n\nInstaller Status: "+ getvar("retstatus"),"@warning");
+endif;
