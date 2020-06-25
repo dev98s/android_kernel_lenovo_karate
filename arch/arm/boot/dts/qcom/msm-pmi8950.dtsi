@@ -213,10 +213,10 @@
 			qcom,float-voltage-mv = <4400>;
 			qcom,float-voltage-comp = <13>;
 			qcom,rparasitic-uohm = <100000>;
-			qcom,fastchg-current-ma = <2100>;
+			qcom,fastchg-current-ma = <3000>;
 			qcom,aicl-rerun-period-s = <180>;		
 			qcom,fastchg-current-comp = <700>;
-			qcom,thermal-mitigation = <1500 1000 500 0>;  
+			qcom,thermal-mitigation = <1500 700 600 325>;  
 
 			qcom,chgr@1000 {
 				reg = <0x1000 0x100>;
