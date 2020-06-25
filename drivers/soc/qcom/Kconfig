@@ -908,6 +908,12 @@ config WCD_DSP_GLINK
 	   between MSM and WCD DSP over glink transport protocol. This driver
 	   provides read and write interface via char device.
 
+config THUNDERPLUG_CONTROL
+	bool "Enable plugging down/up of cores using powersuspend"
+	help
+	  This driver uses powersuspend to take down the cpu cores
+	  on a octa core device.
+
 config STATE_NOTIFIER
     bool "State Notifier"
 
