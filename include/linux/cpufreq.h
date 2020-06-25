@@ -544,9 +544,24 @@ extern struct cpufreq_governor cpufreq_gov_userspace;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ONDEMAND)
 extern struct cpufreq_governor cpufreq_gov_ondemand;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_ondemand)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_LIONFISH)
+extern struct cpufreq_governor cpufreq_gov_lionfish;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_lionfish)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ALUCARD)
+extern struct cpufreq_governor cpufreq_gov_alucard;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_alucard)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ALESSA)
+extern struct cpufreq_governor cpufreq_gov_alessa;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_alessa)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_BIOSHOCK)
+extern struct cpufreq_governor cpufreq_gov_bioshock;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_bioshock)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_CONSERVATIVE)
 extern struct cpufreq_governor cpufreq_gov_conservative;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_conservative)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ELEMENTALX)
+extern struct cpufreq_governor cpufreq_gov_elementalx;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_elementalx)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_CLARITY)
 extern struct cpufreq_governor cpufreq_gov_clarity;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_clarity)
